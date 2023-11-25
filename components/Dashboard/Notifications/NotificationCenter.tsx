@@ -3,7 +3,7 @@
 import React from "react"
 import { CogIcon } from "@/components/UI/Icons"
 import { Notification } from "./Notification"
-import { INotification } from "@/types"
+import { INotification } from "@/types/notifications"
 
 interface NotificationCenterProps {
   open: boolean;
