@@ -1,0 +1,38 @@
+export const CHATS = [
+  {
+    id: 1,
+    name: 'Valerie Smith',
+    image: 'girl.png',
+    brand: 'shopify.png',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit ame',
+    count: 25,
+    code: 39872,
+  },
+  {
+    id: 2,
+    name: 'Jonh Doe',
+    image: 'boy.png',
+    brand: 'nike.png',
+    message: 'lorem ipsum dolor sit amet, consectetur',
+    count: 34,
+    code: 39873,
+  },
+  {
+    id: 3,
+    name: 'Mary Jane',
+    image: 'girl.png',
+    brand: 'shopify.png',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit ame',
+    count: 23,
+    code: 39874,
+  },
+  {
+    id: 4,
+    name: 'Erick Right',
+    image: 'boy.png',
+    brand: 'nike.png',
+    message: 'lorem ipsum dolor sit amet, consectetur',
+    count: 88,
+    code: 39875,
+  },
+]

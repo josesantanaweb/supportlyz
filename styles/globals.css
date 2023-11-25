@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "TT Firs Neue Trial Var Roman";
+  src: url("../public/static/fonts/tt-firs-neue-trial-var-roman.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+body {
+  @apply h-full text-base bg-geyser-200;
+  font-family: "TT Firs Neue Trial Var Roman";
+  font-size: 16px;
+}
+
+/*********** COMPONENTS ***********/
+
+/************* Buttons ***********/
+.button-icon {
+  @apply flex items-center justify-center text-center transition delay-100 bg-white rounded-full cursor-pointer text-emerald-500 hover:bg-emerald-500 hover:text-white w-14 h-14 shadow-geyser-10 hover:shadow-emerald-40 text-2xl
+}
+
+.btn {
+  @apply rounded-full cursor-pointer px-4 py-2 justify-center items-center inline-flex gap-2.5 transition-colors text-white hover:bg-opacity-80 active:bg-opacity-50
+}
+
+.btn.btn-primary {
+  @apply bg-malachite-500 hover:bg-emerald-500
+}
+
+.btn-outline-primary {
+  @apply border-2 border-malachite-500 hover:border-opacity-0 hover:bg-opacity-100 hover:bg-emerald-500 active:border-opacity-0 active:bg-emerald-500 active:bg-opacity-50
+}
+
+
+/************* Search ***********/
+.search {
+  @apply relative w-2/5 bg-white rounded-full h-14 flex items-center overflow-hidden
+}
+
+.search-icon {
+  @apply w-16 relative flex items-center justify-center text-xl text-emerald-500 after:content-[''] after:absolute after:-top-1 after:right-0 after:w-px after:h-7 after:z-20 after:bg-emerald-200
+}
+
+/************* Account ***********/
+.account {
+  @apply flex items-center gap-3 p-2 transition delay-100 bg-white rounded-full cursor-pointer hover:bg-emerald-500 shadow-geyser-10 hover:shadow-emerald-40
+}
+
+/************* Sidebar ***********/
+.sidebar-item {
+  @apply flex items-center justify-center w-[90%] relative h-28 rounded-e-3xl overflow-hidden cursor-pointer transition before:h-full before:w-full before:-translate-x-full hover:before:translate-x-0 before:content-[''] before:absolute before:transition before:bg-gradient-to-b from-emerald-500 to-[#29C1AF] before:border-emerald-700 before:border-l-4
+}
+
+/* This class is used to visually highlight the sidebar item that the user has currently selected. */
+.sidebar-item-is-active {
+  @apply before:translate-x-0 before:content-[''] before:absolute before:transition before:bg-gradient-to-b from-emerald-500 to-[#29C1AF] before:border-emerald-700 before:border-l-4 !text-white
+}
+
+/************* Statistics ***********/
+.statistics {
+  @apply bg-white bg-opacity-50 rounded-3xl h-[110px] w-4/5 cursor-pointer transition relative overflow-hidden before:h-full before:w-full before:-translate-x-full hover:before:translate-x-0 before:content-[''] before:absolute before:z-10 before:transition before:bg-emerald-500 before:duration-500
+}
+
+
+/************* ScrollBar ***********/
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.container {
+  @apply max-w-[1740px] mx-auto px-2.5
+}
