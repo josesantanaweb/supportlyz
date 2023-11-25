@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import { NotificationHandler } from "./NotificationHandler"
-import { NotificationCenter } from "./NotificationCenter"
+// import { NotificationCenter } from "./NotificationCenter"
 
 export const NOTIFICATIONS = [
   {
@@ -29,7 +29,7 @@ export const Notifications = ({}: NotificationsProps) => {
   return (
     <div className="relative">
       <NotificationHandler onClick={handleNotifications} lenght={2} />
-      <NotificationCenter open={open} notifications={NOTIFICATIONS} />
+      {/* <NotificationCenter open={open} notifications={NOTIFICATIONS} /> */}
     </div>
   )
 }
