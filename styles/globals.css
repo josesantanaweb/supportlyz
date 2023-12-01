@@ -9,6 +9,10 @@
   font-weight: 100 900;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply h-full text-base bg-geyser-200;
   font-family: "TT Firs Neue Trial Var Roman";
@@ -34,6 +38,10 @@ body {
   @apply border-2 border-malachite-500 hover:border-opacity-0 hover:bg-opacity-100 hover:bg-emerald-500 active:border-opacity-0 active:bg-emerald-500 active:bg-opacity-50
 }
 
+.btn-outline-emerald-500 {
+  @apply border-2 border-emerald-500 bg-emerald-500 bg-opacity-0 hover:border-opacity-0 hover:bg-opacity-100 active:border-opacity-0 active:bg-opacity-50
+
+}
 
 /************* Search ***********/
 .search {
@@ -77,5 +85,5 @@ body {
 }
 
 .container {
-  @apply max-w-[1740px] mx-auto px-2.5
+  @apply max-w-[1760px] mx-auto px-5
 }

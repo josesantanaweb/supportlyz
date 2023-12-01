@@ -4,15 +4,18 @@
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable import/no-default-export */
 
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
+
 import { Swiper as SwiperType } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 import { SupportlyzIcon, ArrowIcon } from '@/components/UI/Icons'
 import SwiperPagination from './SwiperPagination'
 
 import { customersReview } from '@/data/customersReview'
-import { useEffect, useRef, useState } from 'react'
 
 interface ICustomerReview {
   image: string
@@ -23,44 +26,48 @@ interface ICustomerReview {
 }
 
 const CustomerCard = ({ data }: { data: ICustomerReview }) => {
+  const isMobile = useIsMobile()
+
   const { image, name, job, title, review } = data
 
   return (
-    <div className="bg-elf-green-700 rounded-2.5xl p-6 leading-normal relative overflow-hidden max-w-[440px] text-white">
+    <div className="bg-elf-green-700 rounded-[10px] md:rounded-2.5xl px-4 py-6 md:p-6 leading-normal relative overflow-hidden max-w-[217px] md:max-w-[440px] text-white">
       <SupportlyzIcon
-        className="absolute top-[-148.11px] right-[-104.62px] text-lochinvar-600 opacity-70"
-        width={392.869}
-        height={396.211}
+        className="absolute top-[-79px] right-[-48px] text-lochinvar-600 opacity-70"
+        width={isMobile ? 180 : 392.869}
+        height={isMobile ? 180 : 396.211}
       />
 
-      <div className="relative z-10 px-3 pt-9 mb-3">
-        <div className="mb-6.5">
+      <div className="relative z-10 md:px-3 md:pt-9 mb-10 md:mb-3">
+        <div className="mb-4 md:mb-6.5">
           <Image
             src={image}
             alt={name}
             title={name}
-            width={70}
-            height={70}
-            className="rounded-full h-[70px] w-[70px] object-contain"
+            width={isMobile ? 32 : 70}
+            height={isMobile ? 32 : 70}
+            className="rounded-full h-[32px] w-[32px] md:h-[70px] md:w-[70px] object-contain"
           />
         </div>
 
-        <div className="text-base font-normal tracking-5 opacity-70 mb-3 leading-normal">
+        <div className="text-xs md:text-sm font-normal tracking-[1.466px] md:tracking-5 opacity-70 mb-4 md:mb-7 leading-normal">
           <div>{name}</div>
           {job && <div>{job}</div>}
         </div>
 
-        <div className="text-2xl font-semibold trakink-0.1 mb-6 pb-4 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-2 after:w-28 after:rounded-3xl after:bg-malachite-500 leading-normal">
+        <div className="text-xs md:text-lg font-semibold tracking-[0.029px] md:trakink-0.1 mb-4 relative leading-normal">
           &quot;{title}&quot;
         </div>
 
-        <p className="text-base font-medium leading-normal tracking-0.1 min-h-[182px]">{review}</p>
+        <div className="h-[2px] md:h-2 w-[84px] md:w-28 rounded-3xl bg-malachite-500 mb-4"></div>
+
+        <p className="text-xs md:text-sm font-medium md:font-normal leading-normal md:tracking-0.1 md:min-h-[182px]">{review}</p>
       </div>
 
-      <div className="text-right">
-        <a href="#" className="btn btn-outline-primary h-10 flex-shrink-0">
+      <div className="md:text-right">
+        <a href="#" className="btn btn-outline-primary h-8 md:h-10 flex-shrink-0 text-xs md:text-sm">
           <span>Source</span>
-          <ArrowIcon width={24} height={24} />
+          <ArrowIcon className='text-[20px]' />
         </a>
       </div>
     </div>
@@ -68,12 +75,28 @@ const CustomerCard = ({ data }: { data: ICustomerReview }) => {
 }
 
 const CustomerCarrousel = ({ reviews }: { reviews: Array<ICustomerReview> }) => {
+  const isMobile = useIsMobile()
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const [swiperWidth, setSwiperWidth] = useState<number>(0)
-  const [slides, setSlides] = useState<Array<ICustomerReview>>([])
+  // const [slides, setSlides] = useState<Array<ICustomerReview>>([])
+  const [customerReviewWidth, setCustomerReviewWidth] = useState<number>(0)
 
   const swiperRef = useRef<SwiperType>()
-  const customerReviewWidth = 440
+
+  const slides = useMemo(() => {
+    const slidesPerView = Math.floor(swiperWidth / customerReviewWidth)
+    const tempSlides: Array<ICustomerReview> = JSON.parse(JSON.stringify(reviews))
+
+    if (slidesPerView * 2 > tempSlides.length) {
+      const maxItemsToAdd = slidesPerView * 2 - tempSlides.length
+
+      for (let i = 0; i < maxItemsToAdd; i++) {
+        tempSlides.push(tempSlides[i])
+      }
+    }
+
+    return tempSlides
+  }, [swiperWidth, reviews, customerReviewWidth])
 
   useEffect(() => {
     const handleResize = () => {
@@ -90,23 +113,31 @@ const CustomerCarrousel = ({ reviews }: { reviews: Array<ICustomerReview> }) => 
   }, [])
 
   useEffect(() => {
-    if (swiperWidth) {
-      const slidesPerView = Math.floor(swiperWidth / customerReviewWidth)
-      const tempSlides: Array<ICustomerReview> = JSON.parse(JSON.stringify(reviews))
-
-      if (slidesPerView * 2 > tempSlides.length) {
-        const maxItemsToAdd = slidesPerView * 2 - tempSlides.length
-
-        for (let i = 0; i < maxItemsToAdd; i++) {
-          tempSlides.push(tempSlides[i])
-        }
-      }
-
-      setSlides(tempSlides)
-
-      swiperRef.current?.update()
+    if (isMobile) {
+      setCustomerReviewWidth(217)
+    } else {
+      setCustomerReviewWidth(440)
     }
-  }, [swiperWidth, reviews])
+  }, [isMobile])
+
+  // useEffect(() => {
+  //   if (swiperWidth) {
+  //     const slidesPerView = Math.floor(swiperWidth / customerReviewWidth)
+  //     const tempSlides: Array<ICustomerReview> = JSON.parse(JSON.stringify(reviews))
+
+  //     if (slidesPerView * 2 > tempSlides.length) {
+  //       const maxItemsToAdd = slidesPerView * 2 - tempSlides.length
+
+  //       for (let i = 0; i < maxItemsToAdd; i++) {
+  //         tempSlides.push(tempSlides[i])
+  //       }
+  //     }
+
+  //     setSlides(tempSlides)
+
+  //     swiperRef.current?.update()
+  //   }
+  // }, [swiperWidth, reviews, customerReviewWidth])
 
   return (
     <div>
@@ -120,7 +151,7 @@ const CustomerCarrousel = ({ reviews }: { reviews: Array<ICustomerReview> }) => 
         loop={true}
         navigation={false}
         slidesPerView="auto"
-        spaceBetween={45}
+        spaceBetween={isMobile ? 10 : 45}
       >
         {slides.map((data, index) => (
           <SwiperSlide key={index} className="!w-auto">
@@ -130,7 +161,7 @@ const CustomerCarrousel = ({ reviews }: { reviews: Array<ICustomerReview> }) => 
       </Swiper>
 
       <SwiperPagination
-        className="mx-auto mt-24"
+        className="mx-auto mt-6 md:mt-20 hidden md:block"
         count={reviews.length}
         activeIndex={activeIndex}
         onClick={(index: number) => {
@@ -144,12 +175,11 @@ const CustomerCarrousel = ({ reviews }: { reviews: Array<ICustomerReview> }) => 
 export default function OurCustomersReviewSection({ className = '' }: { className?: string }) {
   return (
     <section className={`text-firefly-900 container ${className}`}>
-      <div className="text-center mb-[60px]">
-        <h2 className="text-[52px] leading-[50px] tracking-[0.1px] mb-6">
-          <span className="text-elf-green-700 font-semibold">Our Customers</span> approach our Performance
+      <div className="text-center mb-8 md:mb-[60px]">
+        <h2 className="text-xl leading-normal md:text-[40px] md:leading-[50px] tracking-[0.1px] max-w-[274px] mx-auto md:max-w-none">
+          <span className="text-elf-green-700 font-bold md:font-semibold">Our Customers</span> approach our Performance
         </h2>
       </div>
-
       <CustomerCarrousel reviews={customersReview} />
     </section>
   )

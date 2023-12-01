@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use client'
 
 import React from 'react'
@@ -5,17 +6,17 @@ import Image from 'next/image'
 
 export const AI = () => {
   return (
-    <div className="flex justify-between items-center">
-      <div className="w-3/6 flex justify-start">
-        <span className="w-[90%] block">
-          <Image src="/static/images/ai.svg" alt="message-box" width={640} height={657} className="w-full h-full" />
+    <div className="flex max-md:flex-col-reverse justify-between items-center gap-[60px] md:gap-0 mb-[80px] mb-[80px] md:mb-[140px]">
+      <div className="md:w-3/6 md:max-w-[602px] flex justify-center md:justify-start">
+        <span className="block">
+          <Image src="/static/images/ai.png" alt="message-box" width={602} height={601.328} className="w-full h-full" />
         </span>
       </div>
-      <div className="w-3/6 text-black">
-        <h4 className="text-4xl mb-8 font-semibold pb-4 relative after:content-[''] after:absolute after:top-full after:left-0 after:h-1 after:z-20 after:bg-emerald-500 after:w-40">
+      <div className="md:w-3/6 md:max-w-[575px] text-black">
+      <h4 className="text-lg md:text-[25px] max-md:text-center mb-8 font-semibold pb-6 relative after:content-[''] after:absolute after:top-full after:left-1/2 md:after:left-0 after:h-2 after:z-20 after:bg-emerald-500 after:w-64 md:after:w-40 max-md:after:-translate-x-1/2 after:rounded-full leading-normal">
           GPT 3.5 Turbo and IA 3 (Cohere)
         </h4>
-        <p className="text-base">
+        <p className="text-sm max-md:text-justify leading-normal">
           GPT 3.5 Turbo and AI 3 (Cohere). These are text generation and conversation platforms that use very advanced
           and powerful natural language models.
           <br />
