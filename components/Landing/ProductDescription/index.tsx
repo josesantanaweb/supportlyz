@@ -12,7 +12,7 @@ import { ShapeAbstract2 } from '@/components/Landing/ShapesAbstract/ShapeAbstrac
 export const ProductDescription = () => {
   return (
     <div id="product" className="relative overflow-hidden">
-      <div className="container mx-auto pt-[60px] md:pt-60 md:pb-48  !max-w-[1360px]">
+      <div className="container mx-auto pt-[60px] md:py-24  !max-w-[1360px]">
         <ShapeAbstract1 />
         <Title />
         <DynamizingConversions />

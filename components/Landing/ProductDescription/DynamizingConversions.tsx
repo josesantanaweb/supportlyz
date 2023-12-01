@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export const DynamizingConversions = () => {
   return (
-    <div className="flex max-md:flex-col justify-between items-center mb-[80px] md:mb-[140px]">
+    <div className="flex max-md:flex-col justify-between items-center mb-[80px]">
       <div className="md:w-3/6 md:max-w-[545px] text-black max-md:mb-[60px]">
         <h4 className="text-lg md:text-[25px] max-md:text-center mb-8 font-semibold pb-6 relative after:content-[''] after:absolute after:top-full after:left-1/2 md:after:left-0 after:h-2 after:z-20 after:bg-emerald-500 after:w-64 md:after:w-40 max-md:after:-translate-x-1/2 after:rounded-full leading-normal">
           Dynamizing Conversions <br />
@@ -20,7 +20,7 @@ export const DynamizingConversions = () => {
         </p>
       </div>
       <div className="md:w-3/6 lg:w-full md:max-w-[660px] flex justify-end">
-        <Image src="/static/images/chat.svg" alt="chat" width={660} height={514} className="w-full h-full" />
+        <Image src="/static/images/chat.png" alt="chat" width={660} height={514} className="w-full h-full" />
       </div>
     </div>
   )

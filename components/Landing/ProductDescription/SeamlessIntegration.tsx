@@ -6,8 +6,8 @@ import Image from 'next/image'
 
 export const SeamlessIntegration = () => {
   return (
-    <div className="flex max-md:flex-col-reverse justify-between items-center gap-[60px] md:gap-20 relative mb-[80px] md:mb-[140px]">
-      <div className="md:w-3/6 md:max-w-[522px] flex justify-start">
+    <div className="flex max-md:flex-col-reverse justify-between items-center gap-[60px] md:gap-20 relative mb-[80px]">
+      <div className="md:w-3/6 md:max-w-[400px] flex justify-start">
         <span className="w-[100%] block">
           <Image
             src="/static/images/message-box.svg"

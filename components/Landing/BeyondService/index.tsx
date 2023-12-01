@@ -8,18 +8,20 @@ import { SupportlyzIcon } from '@/components/UI/Icons'
 
 export const BeyondService = () => {
   return (
-    <div className="w-full xl:h-[845px] bg-elf-green-700 relative mb-8 xl:mb-52 max-xl:pb-8">
+    <div className="w-full xl:h-[600px] bg-elf-green-700 relative mb-8 xl:mb-52 max-xl:pb-8">
       <div className="max-xl:h-[358px]">
         <AnimateShape />
-        <span className="max-xl:hidden absolute w-[1050px] h-100% -left-[450px] -top-[200px] z-10">
+
+        <span className="max-xl:hidden absolute w-[800px] h-100% -left-[450px] -top-[120px] z-10">
           <Image src="/static/images/shape-2.svg" alt="shape" width={1000} height={600} className="h-full w-full" />
         </span>
-        <span className="absolute top-0 max-xl:-translate-x-1/2 left-1/3 sm:left-1/2 xl:-left-[260px] xl:w-[1080px] z-10">
+
+        <span className="absolute top-0 max-xl:-translate-x-1/2 left-1/3 sm:left-1/2 xl:-left-[100px] xl:w-[800px] z-10">
           <div className="animate-bounce-slow flex flex-col items-center">
             <Image
               src="/static/images/beyond-service.svg"
               alt="beyond-service"
-              width={1200}
+              width={800}
               height={657}
               className="w-full max-xl:min-w-[348px] max-xl:max-w-[348px] max-xl:h-[315px]"
             />

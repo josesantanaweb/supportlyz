@@ -6,10 +6,10 @@ import Image from 'next/image'
 
 export const AI = () => {
   return (
-    <div className="flex max-md:flex-col-reverse justify-between items-center gap-[60px] md:gap-0 mb-[80px] mb-[80px] md:mb-[140px]">
+    <div className="flex max-md:flex-col-reverse justify-between items-center gap-[60px] md:gap-0 mb-[20px]">
       <div className="md:w-3/6 md:max-w-[602px] flex justify-center md:justify-start">
         <span className="block">
-          <Image src="/static/images/ai.png" alt="message-box" width={602} height={601.328} className="w-full h-full" />
+          <Image src="/static/images/ai.png" alt="ai" width={602} height={601.328} className="w-full h-full" />
         </span>
       </div>
       <div className="md:w-3/6 md:max-w-[575px] text-black">

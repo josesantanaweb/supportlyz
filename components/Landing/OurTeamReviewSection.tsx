@@ -47,7 +47,7 @@ const TeamReviewCard = ({ data }: { data: ICustomerReview }) => {
           {job && <div>{job}</div>}
         </div>
 
-        <div className="mb-2 md:mb-6 h-[2px] md:h-[7px] w-[69px] md:w-[165px] rounded-3xl bg-malachite-500"></div>
+        <div className="mb-2 md:mb-6 h-[2px] md:h-[7px] w-[69px] md:w-[165px] rounded-3xl bg-emerald-500"></div>
 
         <p className="text-xs md:text-sm md:font-medium leading-normal md:min-h-[84px] text-firefly-900 md:max-w-[709px]">
           &quot;{review}&quot;

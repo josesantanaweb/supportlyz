@@ -47,7 +47,7 @@ const SmallCard = ({
         <h3 className="leading-normal text-lg md:text-[25px] font-bold max-w-[240px] md:max-w-md max-md:text-center">
           {title}
         </h3>
-        <div className="mt-4 mb-3.5 h-1 md:h-1.5 w-44 md:w-28 rounded-3xl bg-malachite-500"></div>
+        <div className="mt-4 mb-3.5 h-1 md:h-1.5 w-44 md:w-28 rounded-3xl bg-emerald-500"></div>
         <p className="leading-normal text-sm font-medium">{description}</p>
       </div>
     </div>
@@ -104,7 +104,7 @@ const BigCard = ({
             {title}
           </h3>
 
-          <div className="my-4 h-1 md:h-1.5 w-44 md:w-28 rounded-3xl bg-malachite-500"></div>
+          <div className="my-4 h-1 md:h-1.5 w-44 md:w-28 rounded-3xl bg-emerald-500"></div>
 
           <p className="text-sm md:text-base lg:text-sm md:font-medium max-w-[364px] mb-4 md:mb-6 max-md:text-justify !leading-normal">
             {description}

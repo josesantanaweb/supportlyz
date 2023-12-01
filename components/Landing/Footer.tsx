@@ -30,10 +30,10 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <div className="block md:hidden w-full max-w-[480px] h-0.5 bg-malachite-500 mt-4"></div>
+          <div className="block md:hidden w-full max-w-[480px] h-0.5 bg-emerald-500 mt-4"></div>
         </nav>
 
-        <div className="hidden md:block w-full max-w-[480px] h-px bg-malachite-500"></div>
+        <div className="hidden md:block w-full max-w-[480px] h-px bg-emerald-500"></div>
 
         <nav>
           <ul className="flex items-center justify-center gap-4 md:gap-6">

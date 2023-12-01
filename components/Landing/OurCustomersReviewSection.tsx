@@ -59,7 +59,7 @@ const CustomerCard = ({ data }: { data: ICustomerReview }) => {
           &quot;{title}&quot;
         </div>
 
-        <div className="h-[2px] md:h-2 w-[84px] md:w-28 rounded-3xl bg-malachite-500 mb-4"></div>
+        <div className="h-[2px] md:h-2 w-[84px] md:w-28 rounded-3xl bg-emerald-500 mb-4"></div>
 
         <p className="text-xs md:text-sm font-medium md:font-normal leading-normal md:tracking-0.1 md:min-h-[182px]">{review}</p>
       </div>
